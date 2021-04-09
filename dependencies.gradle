@@ -90,7 +90,7 @@ ext {
             hiltAndroid         : "com.google.dagger:hilt-android:$hiltAndroidVersion",
             hiltAndroidKapt     : "com.google.dagger:hilt-android-compiler:$hiltAndroidVersion",
             hiltViewModel       : "androidx.hilt:hilt-lifecycle-viewmodel:$hiltVersion",
-            hiltKapt            : "androidx.hilt:hilt-compiler:1.0.0-alpha02$hiltVersion"
+            hiltKapt            : "androidx.hilt:hilt-compiler:$hiltVersion"
     ]
 
     timberDependencies = [
