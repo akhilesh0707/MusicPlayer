@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -39,19 +42,57 @@ android {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation fileTree(dir: "libs", include: ["*.jar"])
 
+    // Core
     implementation coreDependencies.kotlin
     implementation coreDependencies.coreKtx
     implementation coreDependencies.appCompat
     implementation coreDependencies.material
     implementation coreDependencies.constraint
 
+    // Activity KTX for viewModels()
+    implementation coreDependencies.activityKtx
 
+    // Navigation component
+    implementation coreDependencies.navigationFragmentKtx
+    implementation coreDependencies.navigationUiKtx
 
+    // LifeCycle
+    implementation lifeCycleDependencies.viewModelKtx
+    implementation lifeCycleDependencies.liveDataKtx
+    implementation lifeCycleDependencies.lifeCycleExtension
+    implementation lifeCycleDependencies.lifeCycleRuntime
+    implementation lifeCycleDependencies.lifeCycleRuntimeKtx
 
+    // Coroutines
+    implementation coroutinesDependencies.coroutineCore
+    implementation coroutinesDependencies.coroutineAndroid
 
-    /*testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'*/
+    // Glide
+    implementation glideDependencies.glide
+    kapt glideDependencies.glideKapt
+
+    // Dagger - Hilt
+    implementation hiltDependencies.hiltAndroid
+    kapt hiltDependencies.hiltAndroidKapt
+    implementation hiltDependencies.hiltViewModel
+    kapt hiltDependencies.hiltKapt
+
+    // Timber logger
+    implementation timberDependencies.timber
+
+    // Firebase
+    implementation firebaseDependencies.firebaseFireStore
+    implementation firebaseDependencies.firebaseStorageKtx
+
+    // ExoPlayer
+    api exoPlayerDependencies.exoPlayerCore
+    api exoPlayerDependencies.exoPlayerUi
+    api exoPlayerDependencies.exoPlayerMediaSession
+
+    // Test dependencies
+    testImplementation coreTestDependencies.jUnit
+    androidTestImplementation coreTestDependencies.jUnitExt
+    androidTestImplementation coreTestDependencies.espresso
 }
