@@ -68,6 +68,7 @@ dependencies {
     // Coroutines
     implementation coroutinesDependencies.coroutineCore
     implementation coroutinesDependencies.coroutineAndroid
+    implementation coroutinesDependencies.coroutinePlayService
 
     // Glide
     implementation glideDependencies.glide
