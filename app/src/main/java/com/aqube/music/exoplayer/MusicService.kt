@@ -12,6 +12,7 @@ import com.aqube.music.exoplayer.callbacks.MusicPlaybackPreparer
 import com.aqube.music.exoplayer.callbacks.MusicPlayerEventListener
 import com.aqube.music.exoplayer.callbacks.MusicPlayerNotificationListener
 import com.aqube.music.others.Constants.MEDIA_ROOT_ID
+import com.aqube.music.others.Constants.NETWORK_ERROR
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector
@@ -148,6 +149,7 @@ class MusicService : MediaBrowserServiceCompat() {
                             isPlayerInitialized = true
                         }
                     } else {
+                        mediaSession.sendSessionEvent(NETWORK_ERROR, null)
                         result.sendResult(null)
                     }
                 }
