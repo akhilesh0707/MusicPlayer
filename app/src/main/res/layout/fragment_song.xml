@@ -45,12 +45,12 @@
         android:id="@+id/seekBar"
         android:layout_width="0dp"
         android:layout_height="18dp"
-        app:layout_constraintEnd_toStartOf="@+id/tvSongDuration"
+        app:layout_constraintEnd_toStartOf="@+id/textViewSongDuration"
         app:layout_constraintStart_toEndOf="@+id/textViewCurrentTime"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvSongDuration"
+        android:id="@+id/textViewSongDuration"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -62,7 +62,7 @@
         tools:text="00:00" />
 
     <ImageView
-        android:id="@+id/ivPlayPauseDetail"
+        android:id="@+id/imageViewPlayPause"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginTop="32dp"
@@ -74,24 +74,24 @@
         app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
     <ImageView
-        android:id="@+id/ivSkipPrevious"
+        android:id="@+id/imageViewSkipPrevious"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/exo_controls_previous"
-        app:layout_constraintBottom_toBottomOf="@+id/ivPlayPauseDetail"
-        app:layout_constraintEnd_toStartOf="@+id/ivPlayPauseDetail"
-        app:layout_constraintTop_toTopOf="@+id/ivPlayPauseDetail" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewPlayPause"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewPlayPause"
+        app:layout_constraintTop_toTopOf="@+id/imageViewPlayPause" />
 
     <ImageView
-        android:id="@+id/ivSkip"
+        android:id="@+id/imageViewSkipNext"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_marginStart="16dp"
         android:src="@drawable/exo_controls_fullscreen_exit"
-        app:layout_constraintBottom_toBottomOf="@+id/ivPlayPauseDetail"
-        app:layout_constraintStart_toEndOf="@+id/ivPlayPauseDetail"
-        app:layout_constraintTop_toTopOf="@+id/ivPlayPauseDetail" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewPlayPause"
+        app:layout_constraintStart_toEndOf="@+id/imageViewPlayPause"
+        app:layout_constraintTop_toTopOf="@+id/imageViewPlayPause" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
