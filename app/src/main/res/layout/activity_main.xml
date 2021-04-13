@@ -39,7 +39,7 @@
         android:id="@+id/viewPagerSong"
         android:layout_width="0dp"
         android:layout_height="56dp"
-        android:background="#cccc"
+        android:background="#ccc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageViewPlayPause"
         app:layout_constraintStart_toEndOf="@+id/imageViewSongImage" />
@@ -48,8 +48,9 @@
         android:id="@+id/imageViewPlayPause"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:background="#cccccc"
-        android:src="@drawable/exo_controls_play"
+        android:background="#ccc"
+        android:src="@drawable/ic_play"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

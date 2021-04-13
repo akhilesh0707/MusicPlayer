@@ -116,7 +116,7 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.playbackState.observe(this) {
             playBackState = it
             binding.imageViewPlayPause.setImageResource(
-                if (playBackState?.isPlaying == true) R.drawable.exo_controls_pause else R.drawable.exo_controls_play
+                if (playBackState?.isPlaying == true) R.drawable.ic_pause else R.drawable.ic_play
             )
         }
 

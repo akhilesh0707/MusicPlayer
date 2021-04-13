@@ -23,7 +23,6 @@
         android:id="@+id/imageViewSongImage"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:background="#ccc"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -63,11 +62,10 @@
 
     <ImageView
         android:id="@+id/imageViewPlayPause"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_marginTop="32dp"
-        android:background="#ccc"
-        android:src="@drawable/exo_controls_play"
+        android:src="@drawable/ic_play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,20 +73,20 @@
 
     <ImageView
         android:id="@+id/imageViewSkipPrevious"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/exo_controls_previous"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_previous"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewPlayPause"
         app:layout_constraintEnd_toStartOf="@+id/imageViewPlayPause"
         app:layout_constraintTop_toTopOf="@+id/imageViewPlayPause" />
 
     <ImageView
         android:id="@+id/imageViewSkipNext"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="16dp"
-        android:src="@drawable/exo_controls_fullscreen_exit"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/ic_next"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewPlayPause"
         app:layout_constraintStart_toEndOf="@+id/imageViewPlayPause"
         app:layout_constraintTop_toTopOf="@+id/imageViewPlayPause" />
