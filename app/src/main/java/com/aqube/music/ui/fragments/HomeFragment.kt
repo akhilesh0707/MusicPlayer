@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -37,14 +36,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         setupRecyclerView()
         subscribeToObservers()
 
-        songAdapter.setOnItemClickListener { song ->
+        songAdapter.setItemClickListener { song ->
             mainViewModel.playOrToggleSong(song)
         }
     }

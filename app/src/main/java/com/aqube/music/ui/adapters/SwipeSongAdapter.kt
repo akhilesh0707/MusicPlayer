@@ -6,12 +6,9 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
 import com.aqube.music.data.entities.Song
 import com.aqube.music.databinding.ListItemBinding
-import com.bumptech.glide.RequestManager
 import javax.inject.Inject
 
-class SongAdapter @Inject constructor(
-    private val glide: RequestManager
-) : BaseSongAdapter<Song>() {
+class SwipeSongAdapter @Inject constructor() : BaseSongAdapter<Song>() {
 
     override val differ = AsyncListDiffer(this, diffCallback)
 
@@ -24,9 +21,8 @@ class SongAdapter @Inject constructor(
         RecyclerView.ViewHolder(binding.root), Binder<Song> {
         override fun bind(song: Song) {
             binding.apply {
-                textViewTitle.text = song.title
-                textViewSubTitle.text = song.subTitle
-                glide.load(song.imageUrl).into(imageViewAlbum)
+                val titleText = "${song.title} - ${song.subTitle}"
+                textViewTitle.text = titleText
                 root.setOnClickListener {
                     onItemClickListener?.let { itemClick ->
                         itemClick(song)
