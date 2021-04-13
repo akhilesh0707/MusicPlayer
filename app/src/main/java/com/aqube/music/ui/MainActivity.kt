@@ -1,9 +1,9 @@
-package com.aqube.music
+package com.aqube.music.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.aqube.music.R
 import com.bumptech.glide.RequestManager
-import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

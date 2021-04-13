@@ -2,6 +2,7 @@ package com.aqube.music.di
 
 import android.content.Context
 import com.aqube.music.R
+import com.aqube.music.exoplayer.MusicServiceConnection
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
@@ -26,4 +27,10 @@ object AppModule {
             .error(R.drawable.ic_music)
             .diskCacheStrategy(DiskCacheStrategy.DATA)
     )
+
+    @Singleton
+    @Provides
+    fun provideMusicServiceConnection(
+        @ApplicationContext context: Context
+    ) = MusicServiceConnection(context)
 }
