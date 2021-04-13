@@ -7,4 +7,12 @@
         android:id="@+id/homeFragment"
         android:name="com.aqube.music.ui.fragments.HomeFragment"
         android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/songFragment"
+        android:name="com.aqube.music.ui.fragments.SongFragment"
+        android:label="SongFragment" />
+
+    <action android:id="@+id/globalActionToSongFragment"
+        app:destination="@id/songFragment"/>
+
 </navigation>

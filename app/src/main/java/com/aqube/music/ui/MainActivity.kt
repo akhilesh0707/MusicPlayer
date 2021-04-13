@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.media.session.PlaybackStateCompat
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.aqube.music.R
 import com.aqube.music.data.entities.Song
@@ -59,11 +62,18 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+
+        navHostController()
     }
 
     private fun setupRecyclerView() {
         binding.viewPagerSong.apply {
             adapter = swipeSongAdapter
+        }
+
+        swipeSongAdapter.setItemClickListener {
+            val navController: NavController = findNavController(R.id.navHostFragment)
+            navController.navigate(R.id.globalActionToSongFragment)
         }
     }
 
@@ -125,6 +135,29 @@ class MainActivity : AppCompatActivity() {
                     Status.ERROR -> showSnackBar(result.message)
                     else -> Unit
                 }
+            }
+        }
+    }
+
+    private fun hideBottomBar() {
+        binding.imageViewSongImage.isVisible = false
+        binding.viewPagerSong.isVisible = false
+        binding.imageViewPlayPause.isVisible = false
+    }
+
+    private fun showBottomBar() {
+        binding.imageViewSongImage.isVisible = true
+        binding.viewPagerSong.isVisible = true
+        binding.imageViewPlayPause.isVisible = true
+    }
+
+    private fun navHostController() {
+        val navController: NavController = findNavController(R.id.navHostFragment)
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.songFragment -> hideBottomBar()
+                R.id.homeFragment -> showBottomBar()
+                else -> showBottomBar()
             }
         }
     }
