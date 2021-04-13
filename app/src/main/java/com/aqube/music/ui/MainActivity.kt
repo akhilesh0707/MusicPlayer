@@ -2,16 +2,19 @@ package com.aqube.music.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.media.session.PlaybackStateCompat
 import androidx.activity.viewModels
-import androidx.core.view.isVisible
+import androidx.viewpager2.widget.ViewPager2
 import com.aqube.music.R
 import com.aqube.music.data.entities.Song
 import com.aqube.music.databinding.ActivityMainBinding
+import com.aqube.music.exoplayer.isPlaying
 import com.aqube.music.exoplayer.toSong
 import com.aqube.music.others.Status
 import com.aqube.music.ui.adapters.SwipeSongAdapter
 import com.aqube.music.ui.viewmodels.MainViewModel
 import com.bumptech.glide.RequestManager
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -30,12 +33,32 @@ class MainActivity : AppCompatActivity() {
 
     private var currentPlayingSong: Song? = null
 
+    private var playBackState: PlaybackStateCompat? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupRecyclerView()
         subscribeToObservers()
+
+        binding.imageViewPlayPause.setOnClickListener {
+            currentPlayingSong?.let {
+                mainViewModel.playOrToggleSong(it, true)
+            }
+        }
+
+        binding.viewPagerSong.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                if (playBackState?.isPlaying == true) {
+                    mainViewModel.playOrToggleSong(swipeSongAdapter.songs[position])
+                } else {
+                    currentPlayingSong = swipeSongAdapter.songs[position]
+                }
+            }
+        })
     }
 
     private fun setupRecyclerView() {
@@ -80,7 +103,35 @@ class MainActivity : AppCompatActivity() {
             switchViewPagerToCurrentSong(currentPlayingSong ?: return@observe)
         }
 
+        mainViewModel.playbackState.observe(this) {
+            playBackState = it
+            binding.imageViewPlayPause.setImageResource(
+                if (playBackState?.isPlaying == true) R.drawable.exo_controls_pause else R.drawable.exo_controls_play
+            )
+        }
 
+        mainViewModel.isConnected.observe(this) {
+            it?.getContentIfNotHandled().let { result ->
+                when (result?.status) {
+                    Status.ERROR -> showSnackBar(result.message)
+                    else -> Unit
+                }
+            }
+        }
+
+        mainViewModel.networkError.observe(this) {
+            it?.getContentIfNotHandled().let { result ->
+                when (result?.status) {
+                    Status.ERROR -> showSnackBar(result.message)
+                    else -> Unit
+                }
+            }
+        }
+    }
+
+    private fun showSnackBar(message: String?) {
+        Snackbar.make(binding.rootLayout, message ?: "Unknown error occurred", Snackbar.LENGTH_LONG)
+            .show()
     }
 }
 
