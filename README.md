@@ -11,14 +11,14 @@ Music player app in Android using the MVVM architecture. This app will have a si
 
 ## Tech Stack:
 * [ViewModel][1] - Stores UI-related data that isn't destroyed on UI changes. 
-* [LiveData][2] for reactive style programming (from VM to UI).
-* [Dagger-hilt][3] for dependency injection.
-* [Timber][4] for logging.
-* [Coroutines][5] A coroutine is a concurrency design pattern that you can use on Android to simplify code that executes asynchronously
-* [Glide][6] Glide is a fast and efficient image loading library for Android 
-* [Firestore][7] Cloud Firestore is a cloud-hosted, NoSQL database that your iOS, Android
-* [Navigation component][8] To navigate between fragments
-* [ExoPlayer][9] ExoPlayer is an application level media player for Android
+* [LiveData][2] - for reactive style programming (from VM to UI).
+* [Dagger-hilt][3] - for dependency injection.
+* [Timber][4] - for logging.
+* [Coroutines][5] - A coroutine is a concurrency design pattern that you can use on Android to simplify code that executes asynchronously
+* [Glide][6] - Glide is a fast and efficient image loading library for Android 
+* [Firestore][7] - Cloud Firestore is a cloud-hosted, NoSQL database that your iOS, Android
+* [Navigation component][8] - To navigate between fragments
+* [ExoPlayer][9] - ExoPlayer is an application level media player for Android
 
 
 [1]: https://developer.android.com/topic/libraries/architecture/viewmodel
