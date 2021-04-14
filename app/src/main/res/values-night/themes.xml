@@ -12,5 +12,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textViewStyle">@style/PoppinsTextStyle</item>
     </style>
+
+    <style name="PoppinsTextStyle" parent="android:Widget.TextView">
+        <item name="fontFamily">@font/poppins_regular</item>
+    </style>
+
 </resources>
