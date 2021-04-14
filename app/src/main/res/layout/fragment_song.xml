@@ -11,7 +11,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="24sp"
+        android:padding="16dp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/imageViewSongImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -63,8 +64,8 @@
 
     <ImageView
         android:id="@+id/imageViewPlayPause"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginTop="32dp"
         android:src="@drawable/ic_play"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,9 +75,9 @@
 
     <ImageView
         android:id="@+id/imageViewSkipPrevious"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="30dp"
         android:src="@drawable/ic_previous"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewPlayPause"
         app:layout_constraintEnd_toStartOf="@+id/imageViewPlayPause"
@@ -84,9 +85,9 @@
 
     <ImageView
         android:id="@+id/imageViewSkipNext"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="20dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="30dp"
         android:src="@drawable/ic_next"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewPlayPause"
         app:layout_constraintStart_toEndOf="@+id/imageViewPlayPause"

@@ -13,6 +13,7 @@ import com.aqube.music.exoplayer.callbacks.MusicPlayerEventListener
 import com.aqube.music.exoplayer.callbacks.MusicPlayerNotificationListener
 import com.aqube.music.others.Constants.MEDIA_ROOT_ID
 import com.aqube.music.others.Constants.NETWORK_ERROR
+import com.google.android.exoplayer2.C
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector
@@ -79,7 +80,9 @@ class MusicService : MediaBrowserServiceCompat() {
             mediaSession.sessionToken,
             MusicPlayerNotificationListener(this)
         ) {
-            currentSongDuration = exoPlayer.duration
+            if (exoPlayer.duration != C.TIME_UNSET) {
+                currentSongDuration = exoPlayer.duration
+            }
         }
 
         val musicPlaybackPreparer = MusicPlaybackPreparer(firebaseMusicSource) {
