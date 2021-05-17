@@ -28,6 +28,6 @@ Music player app in Android using the MVVM architecture. This app will have a si
 [5]: https://kotlinlang.org/docs/coroutines-overview.html
 [6]: https://bumptech.github.io/glide/
 [7]: https://firebase.google.com/docs/firestore
-[8]: https://developer.android.com/guide/navigation/navigation-getting-started
+[8]: https://developer.android.com/guide/navigation/navigation-getting-started/
 [9]: https://exoplayer.dev/
 
